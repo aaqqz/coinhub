@@ -4,6 +4,8 @@ import com.coin.hub.feigh.UpbitFeignClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
+
 @Service
 @RequiredArgsConstructor
 public class UpbitMarketService implements MarketService {
@@ -12,7 +14,9 @@ public class UpbitMarketService implements MarketService {
 
     @Override
     public double getCoinCurrentPrice(String coin) {
-        return 123.2;
+        return upbitFeignClient.getCoinPrice("KRW-" + coin.toUpperCase())
+                .get(0)
+                .getTrade_price();
     }
 }
 
