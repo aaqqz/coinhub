@@ -18,7 +18,7 @@ public class CommonMarketService {
         MarketService marketService = null;
 
         for (String key : marketServices.keySet()) {
-            if(key.substring(0, market.length()).equals(market.toLowerCase())){
+            if (key.substring(0, market.length()).equals(market.toLowerCase())) {
                 marketService = marketServices.get(key);
                 break;
             }
