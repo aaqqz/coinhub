@@ -4,6 +4,8 @@ import com.coin.hub.feigh.BithumbFeignClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BithumbMarketService implements MarketService {
@@ -17,5 +19,11 @@ public class BithumbMarketService implements MarketService {
                 bithumbFeignClient.getCoinPrice(coin.toUpperCase() + "_KRW")
                 .getData()
                 .getClosing_price());
+    }
+
+    @Override
+    public List<String> getCoins() {
+
+        return List.of("A", "B", "C");
     }
 }

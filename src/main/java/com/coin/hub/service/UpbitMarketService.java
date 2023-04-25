@@ -4,6 +4,7 @@ import com.coin.hub.feigh.UpbitFeignClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -17,6 +18,11 @@ public class UpbitMarketService implements MarketService {
         return upbitFeignClient.getCoinPrice("KRW-" + coin.toUpperCase())
                 .get(0)
                 .getTrade_price();
+    }
+
+    @Override
+    public List<String> getCoins() {
+        return List.of("D", "E", "F");
     }
 }
 
